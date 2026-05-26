@@ -67,4 +67,8 @@ I cut a full private subnet + NAT Gateway networking setup to reduce implementat
 
 ## Notes
 
-HTTPS listener infrastructure is fully configured in Terraform. At submission time, ACM certificate validation was still propagating through DNS. Once ACM status changes to “Issued”, running `terraform apply` completes HTTPS enablement with ALB TLS termination and HTTP to HTTPS redirects.
+## Notes
+
+The service is publicly accessible through the custom domain `merciful.work`.
+
+HTTPS infrastructure and ACM certificate integration are fully configured in Terraform. At submission time, ACM DNS validation was still propagating through Namecheap DNS records. Once the certificate status changes to `Issued`, running `terraform apply` completes ALB HTTPS listener creation and HTTP to HTTPS redirection automatically.
